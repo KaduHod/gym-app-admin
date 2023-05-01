@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,12 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/register', function(){
-    return view('sign-up');
+Route::controller(RegisterController::class)->prefix('register')->group(function(){
+    Route::get('/', 'index');
+    Route::post('/','register');
 });
+
+
+
+
 

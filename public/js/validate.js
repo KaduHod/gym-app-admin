@@ -6,21 +6,29 @@ export const isBirthday = (birthdate) => {
     const birthday = new Date(birthdate);
     return isNaN(birthday.getTime()) || new Date() > birthday;
 }
+const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s])(?=\S+$).{6,}$/;
 const hasUpperCaseLetters = /(?=.*[A-Z])/
 const hasLowerCaseLetters = /(?=.*[a-z])/
 const hasNumbers = /(?=.*\d)/
-const noWhitespaces = /^\S+$/;
+const hasWhitespaces = /^\S+$/;
 const minLengthRegex = /^.{6,}$/
+const hasSpecialCHars = /(?=.*[^\w\s])/
 export const validatePassword = (val) => {
+    if(passwordRegex.test(val)) return true;
     const hasUpper = hasUpperCaseLetters.test(val)
     const hasLower = hasLowerCaseLetters.test(val)
     const hasNumber = hasNumbers.test(val)
-    const notWhiteSpaces = noWhitespaces.test(val)
+    const notWhiteSpaces = !hasWhitespaces.test(val)
     const hasMinLen = minLengthRegex.test(val)
-    return hasLower && 
-        hasUpper && 
-        hasNumber && 
-        notWhiteSpaces && 
-        hasMinLen;
+    const hasSpecialCharacters = hasSpecialCHars.test(val)
+    const verify = {
+        hasUpper,
+        hasLower,
+        hasNumber,
+        notWhiteSpaces,
+        hasMinLen,
+        hasSpecialCharacters
+    }
+    return Object.keys(verify).filter(key => !verify[key])
 }
 

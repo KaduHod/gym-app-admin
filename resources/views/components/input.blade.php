@@ -1,4 +1,4 @@
-@props(['id','titulo', 'name', 'type', 'placeholder'])
+@props(['id','titulo', 'name', 'type', 'placeholder', 'pattern', 'required'])
 
 <label for={{ $name }} class="w-5/6 mt-1 mb-1">
     @isset($titulo)
@@ -7,6 +7,12 @@
     <input id='{{ $id }}' name='{{ $name }}' 
         @isset($type)
             type='{{ $type }}'
+        @endisset
+        @isset($pattern)
+            type='{{ $pattern }}'
+        @endisset
+        @isset($required)
+            required
         @endisset
         @empty($type)
             type='text'
