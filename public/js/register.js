@@ -9,29 +9,35 @@ const fields = {
     username: document.getElementById('username-register'),
 }
 
-const validate = ({name, username, email, password, passwordConfirmation, birthday}) => {
+const validate = () => {
     const validateName = () => {
-        return isString(name)
+        const valid = isString(fields.name)
+        if(valid) return
     }
 
     const validateUserName = () => {
-        return isString(username)
+        const valid = isString(fields.username)
+        if(valid) return
     }
 
     const validateEmail = () => {
-        return isString(email) && isEmail(email)
+        const valid = isString(fields.email) && isEmail(fields.email)
+        if(valid) return
     }
 
     const validatePass = () => {
-        return validatePassword(password)
+        const valid = validatePassword(fields.password)
+        if(valid) return
     }
 
     const confirmPassword = () => {
-        return password === passwordConfirmation
+        const valid = fields.password === fields.passwordConfirmation
+        if(valid) return
     }
 
     const validateBirthdate = () => {
-        return isBirthday(birthday)
+        const valid = isBirthday(fields.birthday)
+        if(valid) return
     }
 
     const main = () => {
@@ -46,18 +52,17 @@ const validate = ({name, username, email, password, passwordConfirmation, birthd
     return main()
 }
 
+const warnMessage = (field) => {
+
+}
+
 const setEventRegister = () => {
     form.addEventListener('click', (e) => {
         e.preventDefault()
         const user = Object.keys(fields).reduce((acc, key) => {
-            acc[key] = fields[key].value;
-            return acc
+            acc[key] = fields[key].value; return acc
         }, {})
-
-        console.log({user})
-        const valid = validate(user)
-
-        console.log(valid)
+        validate(user) ? form.submit() : null
     })
 }
 setEventRegister()
