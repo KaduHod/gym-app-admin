@@ -6,6 +6,7 @@ export const isBirthday = (birthdate) => {
     const birthday = new Date(birthdate);
     return isNaN(birthday.getTime()) || new Date() > birthday;
 }
+export const isPhone = (val) => /^\d{3}\s\d{5}-\d{4}$/.test(val);
 const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s])(?=\S+$).{6,}$/;
 const hasUpperCaseLetters = /(?=.*[A-Z])/
 const hasLowerCaseLetters = /(?=.*[a-z])/

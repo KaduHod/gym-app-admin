@@ -10,9 +10,9 @@
             required="required">
         </x-input>
         <x-input 
-            id='username-register' 
-            name="username" 
-            placeholder="username" 
+            id='nickname-register' 
+            name="nickname" 
+            placeholder="nickname" 
             type='text'
             required="required">
         </x-input>
@@ -46,6 +46,13 @@
             type='date'
             required="required"
             pattern='/^(?!\s*$)[0-9]{4}-[0-9]{2}-[0-9]{2}$/'>
+        </x-input>
+        <x-input 
+            id='cellphone-register' 
+            name="cellphone" 
+            type='tel'
+            required="required"
+            pattern='/^\d{3}\s\d{5}-\d{4}$/'>
         </x-input>
 
         <!-- <div class="flex w-full items-center text-white justify-around"> -->

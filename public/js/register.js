@@ -1,4 +1,4 @@
-import { isString, isBirthday, isEmail, validatePassword } from "./validate.js"
+import { isString, isBirthday, isEmail, validatePassword, isPhone } from "./validate.js"
 
 const form = document.forms['register-form'];
 
@@ -11,10 +11,10 @@ const validate = () => {
         errors.name = elements['name']
     }
 
-    const validateUserName = () => {
-        const valid = isString(elements['username'].value)
+    const validateNickname = () => {
+        const valid = isString(elements['nickname'].value)
         if(valid) return
-        errors.username = elements['username']
+        errors.nickname = elements['nickname']
     }
 
     const validateEmail = () => {
@@ -42,6 +42,12 @@ const validate = () => {
         errors.birthday = elements['birthdate']
     }
 
+    const validateCellphone = () => {
+        const valid = isPhone(elements['cellphone'].value)
+        if(valid) return
+        errors.cellphone = elements['cellphone']
+    }
+
     const main = () => {
         errors = {}
         elements = form.elements
@@ -50,7 +56,8 @@ const validate = () => {
         validateEmail() 
         validatePass() 
         confirmPassword() 
-        validateUserName()
+        validateNickname()
+        validateCellphone()
     }
 
     main()
