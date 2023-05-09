@@ -67,7 +67,10 @@ const validate = () => {
 
 const setEventRegister = () => {
     form.addEventListener('click', (e) => {
-        e.preventDefault()     
+        e.preventDefault() 
+        if(e.target.id === "login-link" || e.target.id === "register-link") {
+            window.location.replace(e.target.href)
+        }    
         if(e.target.id !== "register-button") return   
         const errors = validate()
         console.log(errors)

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExerciseController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -24,7 +25,8 @@ Route::controller(RegisterController::class)->prefix('register')->group(function
     Route::post('/','register');
 });
 
-
-
+Route::controller(ExerciseController::class)->prefix('exercises')->group(function(){
+    Route::get('/register', 'register');
+});
 
 

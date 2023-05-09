@@ -1,0 +1,5 @@
+.background-login-register{
+    background-image: linear-gradient(to bottom, rgba(218, 123, 123, 0.5), rgba(150, 44, 44, 0.5)), url("/images/dumbell-photo.jpg");
+    background-repeat: none;
+    background-size: cover;
+}

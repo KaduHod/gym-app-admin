@@ -1,5 +1,5 @@
 <form method="post" name="register-form" action="/register"
-    class="flex border-black w-96 h-64 flex justify-between flex-col items-center rounded bg-gradient-to-r from-bg-red-600 p-6"
+    class="flex border-black w-96 h-64 flex justify-between items-center flex-col rounded bg-gradient-to-r from-bg-red-600 p-6"
 >
     @csrf
         <x-input 
@@ -71,6 +71,6 @@
         <!-- </div> -->
         <div class="w-full flex justify-around items-center h-12  mt-1 mb-1">
             <x-button id="register-button" titulo='Register'/>
-            <x-link id='register-link'  titulo='Login' link='/' white='true'/>
+            <x-link id='login-link'  titulo='Login' link='/' white='true'/>
         </div>
 </form>
